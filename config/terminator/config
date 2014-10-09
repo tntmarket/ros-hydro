@@ -1,0 +1,72 @@
+[global_config]
+  handle_size = 1
+  enabled_plugins = ,
+  dbus = True
+  focus = system
+  close_button_on_tab = False
+  suppress_multiple_term_dialog = True
+  title_transmit_bg_color = "#d30102"
+  inactive_color_offset = 1.11
+[keybindings]
+  cycle_prev = None
+  next_tab = <Primary>Tab
+  close_window = None
+  switch_to_tab_10 = <Alt>0
+  rotate_ccw = <Shift><Alt>r
+  go_right = <Alt>l
+  group_all = None
+  toggle_zoom = None
+  scaled_zoom = None
+  zoom_in = <Primary><Shift>plus
+  switch_to_tab_7 = <Alt>7
+  prev_tab = <Primary><Shift>Tab
+  switch_to_tab_6 = <Alt>6
+  group_tab = None
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  split_vert = <Alt>v
+  ungroup_all = None
+  switch_to_tab_1 = <Alt>1
+  ungroup_tab = None
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_3 = <Alt>3
+  cycle_next = None
+  zoom_out = <Primary><Shift>underscore
+  switch_to_tab_2 = <Alt>2
+  go_prev = None
+  close_term = None
+  new_terminator = None
+  go_left = <Alt>h
+  hide_window = None
+  go_up = <Alt>k
+  rotate_cw = <Alt>r
+  split_horiz = <Alt>s
+  zoom_normal = <Primary><Shift>parenright
+  go_down = <Alt>j
+  new_window = None
+  go_next = None
+  switch_to_tab_9 = <Alt>9
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_image = None
+    use_system_font = False
+    cursor_color = "#eee8d5"
+    foreground_color = "#839496"
+    scroll_on_output = False
+    show_titlebar = False
+    font = Inconsolata Medium 12 
+    background_color = "#002b36"
+    allow_bold = False
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
