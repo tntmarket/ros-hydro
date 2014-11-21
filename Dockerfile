@@ -52,6 +52,7 @@ RUN apt-get update && apt-get install -y \
     terminator \
     ttf-inconsolata \
     iputils-ping \
+    net-tools \
     sudo \
     vim
 RUN sudo adduser davelu sudo
@@ -59,18 +60,22 @@ RUN chsh -s /bin/bash davelu
 # Install graphics card driver
 ADD ./nvidia /tmp/nvidia
 RUN /tmp/nvidia/NVIDIA-Linux-x86_64-343.22.run -s -N --no-kernel-module
+ADD ./config /home/davelu/.config/
+RUN bin/bash -c "cat /home/davelu/.config/bash.extra >> /home/davelu/.bashrc"
+RUN chown -R davelu /home/davelu/.config /home/davelu/.bashrc
 USER davelu
 
-RUN bin/bash -c "echo 'eval `dircolors -b ~/dircolors`' >> ~/.bashrc && \
-                 wget -O ~/dircolors 'https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark'"
-ADD ./config /home/davelu/.config/
 
 #############################################################################
 ############################### Graphics Card ###############################
 #############################################################################
 
 # Connect to the host's display
-ENV DISPLAY localhost:1
+ENV DISPLAY localhost:0
+
+#############################################################################
+############################### ROS Env Stuff ###############################
+#############################################################################
 
 # This should be run with
 #  -v /tmp/.X11-unix:/tmp/.X11-unix       (to display on the host X server)

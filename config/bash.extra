@@ -1,0 +1,17 @@
+eval `dircolors -b ~/.config/dircolors`
+
+myip () {
+   ifconfig enp5s0 | sed -n 2p | sed 's/ *inet addr:\([0-9.]*\).*/\1/'
+}
+
+turtle() {
+   export ROS_IP=`myip`
+   export ROS_MASTER_URI=http://172.24.84.4:11311
+   echo "export ROS_IP=`myip`" >> ~/.bashrc
+   echo "export ROS_MASTER_URI=http://172.24.84.4:11311" >> ~/.bashrc
+}
+
+unturtle() {
+   sed -i '/export ROS_IP/d' ~/.bashrc
+   sed -i '/export ROS_MASTER_URI/d' ~/.bashrc
+}
