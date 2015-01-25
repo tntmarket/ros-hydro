@@ -59,12 +59,11 @@ RUN sudo adduser davelu sudo
 RUN chsh -s /bin/bash davelu
 # Install graphics card driver
 ADD ./nvidia /tmp/nvidia
-RUN /tmp/nvidia/NVIDIA-Linux-x86_64-343.22.run -s -N --no-kernel-module
+RUN /tmp/nvidia/NVIDIA-Linux-x86_64-343.36.run -s -N --no-kernel-module
 ADD ./config /home/davelu/.config/
 RUN bin/bash -c "cat /home/davelu/.config/bash.extra >> /home/davelu/.bashrc"
 RUN chown -R davelu /home/davelu/.config /home/davelu/.bashrc
 USER davelu
-
 
 #############################################################################
 ############################### Graphics Card ###############################
